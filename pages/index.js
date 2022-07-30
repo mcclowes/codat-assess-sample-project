@@ -72,29 +72,21 @@ const Home = (props) => {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <p>
-          This page uses 
-          <a href="https://nextjs.org/docs/basic-features/pages#server-side-rendering">Server-side Rendering</a>, 
-          and is rendered server side every time the page is requested.
-          This ensures your Codat API key is not exposed to the user.
-        </p>
-{/*  */}
-{/*         <div className={styles.grid}> */}
-{/*           { */}
-{/*             propscompaniesData.results?.length >= 1 */}
-{/*               ? propscompaniesData.results.map(company => { */}
-{/*                 return <a key={company.id} href={`https://app.codat.io/companies/${company.id}`} target="_blank" rel="noreferrer" className={styles.card}> */}
-{/*                   <h2>{company.name}</h2> */}
-{/*                   <p>{company.id}</p> */}
-{/*                 </a> */}
-{/*               }) */}
-{/*               : <div className={styles.card}> */}
-{/*                   <h2>No companies</h2> */}
-{/*                   <p>Head to the <a key={company.id} href="https://app.codat.io/companies" target="_blank" rel="noreferrer">Codat Portal</a> to add your first company</p> */}
-{/*                 </div> */}
-{/*           } */}
-{/*         </div> */}
-
+        <div className={styles.grid}>
+          {
+            props.companiesData.results?.length >= 1
+              ? props.companiesData.results.map(company => {
+                return <a key={company.id} href={`https://app.codat.io/companies/${company.id}`} target="_blank" rel="noreferrer" className={styles.card}>
+                  <h2>{company.name}</h2>
+                  <p>{company.id}</p>
+                </a>
+              })
+              : <div className={styles.card}>
+                  <h2>No companies</h2>
+                  <p>Head to the <a key={company.id} href="https://app.codat.io/companies" target="_blank" rel="noreferrer">Codat Portal</a> to add your first company</p>
+                </div>
+          }
+        </div>
 
         <LineChart
           width={500}
