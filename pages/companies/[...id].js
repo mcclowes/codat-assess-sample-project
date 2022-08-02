@@ -58,7 +58,7 @@ const Company = ({companyData, assessData, rawData}) => {
               <Tooltip />
               <Legend />
               {
-                assessData.keys.map((key, i) => <Line key={i} type="monotone" dataKey={key} stroke={CHART_COLORS[i]} activeDot={{ r: 8 }} /> )
+                assessData.keys.map((key, i) => <Line key={i} type="linear" dataKey={key} stroke={CHART_COLORS[i]} activeDot={{ r: 8 }} /> )
               }
             </LineChart>
           : <div>No assess data</div>
